@@ -249,23 +249,23 @@ new_thing()
 		cur->o_which = 1;
 	when 3:
 	    init_weapon(cur, pick_one(weap_info, MAXWEAPONS));
-	    if ((r = rnd(100)) < 10)
+	    if ((r = rnd(100)) < 5)
 	    {
 		cur->o_flags |= ISCURSED;
 		cur->o_hplus -= rnd(3) + 1;
 	    }
-	    else if (r < 15)
+	    else if (r < 25)
 		cur->o_hplus += rnd(3) + 1;
 	when 4:
 	    cur->o_type = ARMOR;
 	    cur->o_which = pick_one(arm_info, MAXARMORS);
 	    cur->o_arm = a_class[cur->o_which];
-	    if ((r = rnd(100)) < 20)
+	    if ((r = rnd(100)) < 10)
 	    {
 		cur->o_flags |= ISCURSED;
 		cur->o_arm += rnd(3) + 1;
 	    }
-	    else if (r < 28)
+	    else if (r < 42)
 		cur->o_arm -= rnd(3) + 1;
 	when 5:
 	    cur->o_type = RING;
@@ -283,7 +283,8 @@ new_thing()
 		    }
 		when R_AGGR:
 		case R_TELEPORT:
-		    cur->o_flags |= ISCURSED;
+		    if (rnd(100) < 50)
+        		cur->o_flags |= ISCURSED;
 	    }
 	when 6:
 	    cur->o_type = STICK;
