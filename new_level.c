@@ -141,7 +141,7 @@ put_things()
      * Do MAXOBJ attempts to put things on a level
      */
     for (i = 0; i < MAXOBJ; i++)
-	if (rnd(100) < 36)
+	if (rnd(100) < 50)
 	{
 	    /*
 	     * Pick a new object and link it in the list
